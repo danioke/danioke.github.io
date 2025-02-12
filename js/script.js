@@ -26,19 +26,17 @@ const tanggal = `${getYear}-${bulan()}-${hari()}`;
 
 
 function getJadwalSholat() {
-	fetch('https://api.banghasan.com/sholat/format/json/jadwal/kota/617/tanggal/' + tanggal)
-	.then(response => response.json())
-	.then(data => {
-		const jadwal = data.jadwal.data;
-		document.querySelector('.subuh').textContent = jadwal.subuh;
-		document.querySelector('.dzuhur').textContent = jadwal.dzuhur;
-		document.querySelector('.ashar').textContent = jadwal.ashar;
-		document.querySelector('.maghrib').textContent = jadwal.maghrib;
-		document.querySelector('.isya').textContent = jadwal.isya;
-		document.querySelector('.tanggal').textContent = jadwal.tanggal;
-		
-	});
+	fetch('https://api.myquran.com/v2/sholat/jadwal/0809/' + tanggal)
+	.then(res => res.json())
+	.then ( data => {
+		const jadwal = data.data.jadwal
+		// console.log(jadwal)
+		document.getElementById('subuh').textContent = jadwal.subuh
+		document.getElementById('dzuhur').textContent = jadwal.dzuhur
+		document.getElementById('ashar').textContent = jadwal.ashar
+		document.getElementById('maghrib').textContent = jadwal.maghrib
+		document.getElementById('isya').textContent = jadwal.isya
+	})
 }
 
-getJadwalSholat();
-
+getJadwalSholat()

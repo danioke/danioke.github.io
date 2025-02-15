@@ -22,7 +22,7 @@ function hari(){
 	}
 	return hari;
 }
-const tanggal = `${getYear}-${getMont()}-${getDay()}`;
+const tanggal = `${getYear}-${bulan()}-${hari()}`;
 
 
 function getJadwalSholat() {
